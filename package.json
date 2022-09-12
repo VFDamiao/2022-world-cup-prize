@@ -1,0 +1,22 @@
+{
+  "name": "2022-world-cup-prize",
+  "version": "1.0.0",
+  "description": "This is a project",
+  "main": "index.html",
+  "scripts": {
+    "scss": "node-sass --watch scss -o css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WagnerCaetano/2022-world-cup-prize.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/WagnerCaetano/2022-world-cup-prize/issues"
+  },
+  "homepage": "https://github.com/WagnerCaetano/2022-world-cup-prize#readme",
+  "dependencies": {
+    "node-sass": "^7.0.3"
+  }
+}
