@@ -1,5 +1,4 @@
 .fix-image {
   width: 60vw !important;
   height: 40vh !important;
-  object-fit: contain !important;
-}
+  object-fit: contain !important; }

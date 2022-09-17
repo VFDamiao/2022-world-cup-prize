@@ -1,27 +1,21 @@
 body {
-  font-family: "Roboto", sans-serif;
-}
+  font-family: "Roboto", sans-serif; }
 
 .container {
   max-width: 100%;
   width: auto;
-  min-width: 50%;
-}
+  min-width: 50%; }
 
 .button {
-  padding-top: 10px;
-}
+  padding-top: 10px; }
 
 #inputIdade {
-  width: 15%;
-}
+  width: 15%; }
 
 .idade-group {
-  gap: 30px;
-}
+  gap: 30px; }
 
 .required:after {
   padding-left: 5px;
   content: "*";
-  color: red;
-}
+  color: red; }
