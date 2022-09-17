@@ -1,0 +1,17 @@
+.bg-image {
+  z-index: 0;
+  background: url("../assets/imgs/background.jpg") no-repeat center center fixed;
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.bg-navbar {
+  background: rgb(14, 14, 14);
+  background: radial-gradient(circle, rgba(150, 11, 51, 1) 0%, rgba(14, 14, 14, 1) 100%);
+}
+
+nav a {
+  color: #e6e3e2 !important;
+}

@@ -1,0 +1,14 @@
+.bg-image {
+  z-index: 0;
+  background: url("../assets/imgs/background.jpg") no-repeat center center fixed;
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover; }
+
+.bg-navbar {
+  background: #0e0e0e;
+  background: radial-gradient(circle, #960b33 0%, #0e0e0e 100%); }
+
+nav a {
+  color: #e6e3e2 !important; }
