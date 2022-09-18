@@ -2,3 +2,6 @@
   width: 60vw !important;
   height: 40vh !important;
   object-fit: contain !important; }
+
+.bg-white {
+  background-color: lightgray !important; }
