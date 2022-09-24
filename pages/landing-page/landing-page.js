@@ -1,27 +1,33 @@
-// Set the date we're counting down to
-var countDownDate = new Date();
-countDownDate.setSeconds(new Date().getSeconds() + 10);
-countDownDate.getTime();
+function loadTimer() {
+  var countDownDate = new Date();
+  countDownDate.setSeconds(new Date().getSeconds() + 2);
+  countDownDate.getTime();
 
-// Update the count down every 1 second
-var x = setInterval(function () {
-  // Get today's date and time
-  var now = new Date().getTime();
+  var x = setInterval(function () {
+    // Get today's date and time
+    var now = new Date().getTime();
 
-  // Find the distance between now and the count down date
-  var distance = countDownDate - now;
+    var distance = countDownDate - now;
 
-  // Time calculations for days, hours, minutes and seconds
-  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-  console.log(countDownDate, now, distance, seconds);
+    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    console.log(countDownDate, now, distance, seconds);
 
-  // Display the result in the element with id="demo"
-  document.getElementById("demo").innerHTML = seconds + " segundos";
+    document.getElementById("demo").innerHTML = seconds + " segundos";
 
-  // If the count down is finished, write some text
-  if (distance < 0) {
-    clearInterval(x);
-    document.getElementById("btn-sorteio").style.display = "block";
-    document.getElementById("demo").innerHTML = "0 segundos";
-  }
-}, 1000);
+    if (distance < 0) {
+      clearInterval(x);
+      document.getElementById("btn-sorteio").style.display = "block";
+      document.getElementById("demo").innerHTML = "0 segundos";
+    }
+  }, 1000);
+}
+
+loadTimer();
+
+async function seeResultsButton() {
+  alert("resultado");
+  window.localStorage.setItem("storage", JSON.stringify({ sorteio: true }));
+  await fetch("https://sheets.googleapis.com/v4/spreadsheets/19tjUJpsWA-96kz8JcIWEMjk_DXGCrnGP79HkEyNbJOM?key=AIzaSyAOVBIC4dpt492p3tEJhfxXb6dKRNf8vpk")
+    .then((response) => response.json())
+    .then((data) => console.log(data));
+}
