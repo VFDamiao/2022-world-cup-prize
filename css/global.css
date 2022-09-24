@@ -14,4 +14,13 @@ nav a {
   color: #e6e3e2 !important; }
 
 body {
-  font-family: "Roboto", sans-serif; }
+  font-family: "Roboto", sans-serif;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important; }
+
+.content {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+  height: 100vh; }

@@ -6,9 +6,10 @@
   height: 60px;
   float: left;
   margin-right: 15px;
-  text-align: center;
-}
+  text-align: center; }
 
 .card-icon i {
-  font-size: 48px;
-}
+  font-size: 48px; }
+
+footer {
+  justify-self: flex-end; }

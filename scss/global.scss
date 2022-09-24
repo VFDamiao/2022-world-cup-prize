@@ -18,4 +18,14 @@ nav a {
 
 body {
   font-family: "Roboto", sans-serif;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+}
+
+.content {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+  height: 100vh;
 }
