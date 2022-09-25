@@ -7,6 +7,12 @@
   background-size: cover;
 }
 
+.fix-image {
+  width: 60vw !important;
+  height: 40vh !important;
+  object-fit: contain !important;
+}
+
 .bg-navbar {
   background: rgb(14, 14, 14);
   background: radial-gradient(circle, rgba(150, 11, 51, 1) 0%, rgba(14, 14, 14, 1) 100%);
