@@ -6,6 +6,11 @@
   background-repeat: no-repeat;
   background-size: cover; }
 
+.fix-image {
+  width: 60vw !important;
+  height: 40vh !important;
+  object-fit: contain !important; }
+
 .bg-navbar {
   background: #0e0e0e;
   background: radial-gradient(circle, #960b33 0%, #0e0e0e 100%); }
