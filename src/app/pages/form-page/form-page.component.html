@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Sorteio COPA 2022</title>
+
+    <link
+      href="http://fonts.googleapis.com/css?family=Roboto"
+      rel="stylesheet"
+      type="text/css"
+    />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
+      crossorigin="anonymous"
+    />
+    <link rel="icon" href="../../../assets/imgs/logo.svg" />
+  </head>
+
+  <body class="bg-image">
+    <nav class="navbar navbar-expand-md navbar-dark bg-navbar">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+          <img src="../../../assets/imgs/logo.svg" width="64" height="64" />
+        </a>
+
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mx-auto">
+            <li class="nav-item active text-center">
+              <a class="nav-link" href="../landing-page/landing-page.html"
+                >Início</a
+              >
+            </li>
+            <li class="nav-item text-center">
+              <a class="nav-link" href="../form-page/form-page.html"
+                >Formulário de participação</a
+              >
+            </li>
+            <li class="nav-item text-center">
+              <a class="nav-link" href="../tutorial/tutorial.html"
+                >Tutorial para participar</a
+              >
+            </li>
+            <li class="nav-item text-center">
+              <a class="nav-link" href="../about/about.html">Sobre</a>
+            </li>
+            <li class="nav-item text-center">
+              <a class="nav-link" href="../contact/contact.html">Contato</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <section
+      class="container-lg mt-2 mb-2 d-flex align-items-center flex-column"
+    >
+      <div class="text-light pt-2 pb-2">
+        <div class="pt-2 pb-2">
+          <h1>Copa do Mundo 2022 Sorteio</h1>
+          <p>
+            Preencha essa informações para concorrer ao sorteio de um ingresso,
+            ida e volta com tudo pago para todos os dias da copa.
+          </p>
+          <img
+            src="../../../assets/imgs/banner.jpg"
+            class="img-fluid"
+            alt="Responsive image"
+          />
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="row d-flex justify-content-center align-items-center">
+          <div class="col-12">
+            <div
+              class="card card-registration card-registration-2"
+              style="border-radius: 15px"
+            >
+              <div class="card-body p-0">
+                <form class="row g-0">
+                  <div class="col-lg-6">
+                    <div class="p-5">
+                      <h3
+                        class="fw-normal mb-5"
+                        style="color: rgba(150, 11, 51, 1)"
+                      >
+                        Informações Gerais
+                      </h3>
+                      <div class="row">
+                        <div class="col-md-6 mb-4 pb-2">
+                          <div class="form-outline">
+                            <input
+                              type="text"
+                              class="form-control form-control-lg"
+                              id="inputNome"
+                              name="inputNome"
+                              placeholder="Seu nome"
+                              required
+                            />
+                            <label class="form-label" for="form3Examplev2"
+                              >Nome (como consta no passaporte)</label
+                            >
+                          </div>
+                        </div>
+                        <div class="col-md-6 mb-4 pb-2">
+                          <div class="form-outline">
+                            <input
+                              type="text"
+                              class="form-control form-control-lg"
+                              id="inputSobrenome"
+                              name="inputSobrenome"
+                              placeholder=" Seu Sobrenome"
+                              required
+                            />
+                            <label class="form-label" for="form3Examplev3"
+                              >Sobrenome (como conta no passaporte)</label
+                            >
+                          </div>
+                        </div>
+                        <div class="col-md-6 mb-4 pb-2">
+                          <div class="mb-4 pb-2">
+                            <div class="form-outline">
+                              <input
+                                type="text"
+                                id="form3Examplev4"
+                                class="form-control form-control-lg"
+                                id="inputApelido"
+                                name="inputApelido"
+                                placeholder="Digite seu Apelido"
+                                required
+                              />
+                              <label class="form-label" for="form3Examplev4"
+                                >Como gostaria de ser chamado</label
+                              >
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-6 mb-4 pb-2">
+                          <div class="mb-4 pb-2">
+                            <div class="form-outline">
+                              <input
+                                type="date"
+                                id="form3Examplev4"
+                                class="form-control form-control-lg"
+                                id="inputDataNasc"
+                                name="inputDataNasc"
+                                required
+                              />
+                              <label class="form-label" for="form3Examplev4"
+                                >Data de Nascimento</label
+                              >
+                            </div>
+                          </div>
+                        </div>
+                        <div>
+                          <label
+                            class="required flex justify-content-center mt-2 mb-5"
+                            for="inputSexo"
+                            >Sexo
+                          </label>
+                          <input
+                            type="radio"
+                            id="inputFeminino"
+                            name="inputSexo"
+                            value="Feminino"
+                          />
+                          Feminino
+                          <input
+                            type="radio"
+                            id="inputMasculino"
+                            name="inputSexo"
+                            value="Masculino"
+                          />
+                          Masculino
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-6 mb-4 pb-2 mb-md-0 pb-md-0">
+                          <div class="form-outline">
+                            <input
+                              type="text"
+                              id="form3Examplev5"
+                              class="form-control form-control-lg"
+                              id="inputRG"
+                              name="inputRG"
+                              placeholder="00.000.000-0"
+                              pattern="(\d{2}\.?\d{3}\.?\d{3}-?\d{1})"
+                              title="Certifique-se de escrever corretamente o RG Ex:00.000.000-0"
+                              required
+                            />
+                            <label class="form-label" for="form3Examplev5"
+                              >RG</label
+                            >
+                          </div>
+                        </div>
+                        <div class="col-md-6 mb-4 pb-2 mb-md-0 pb-md-0">
+                          <div class="form-outline">
+                            <input
+                              type="text"
+                              id="form3Examplev5"
+                              class="form-control form-control-lg"
+                              id="inputCPF"
+                              name="inputCPF"
+                              placeholder="000.000.000-00"
+                              pattern="(\d{3}\.?\d{3}\.?\d{3}-?\d{2})"
+                              title="Certifique-se de escrever corretamente o CPF Ex:000.000.000-00"
+                              size="14"
+                              required
+                            />
+                            <label class="form-label" for="form3Examplev5"
+                              >CPF</label
+                            >
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div>
+                          <label
+                            class="required flex justify-content-center mt-4 mb-5"
+                            for="inputPass"
+                            >Tem passaporte:
+                          </label>
+                          <input
+                            type="radio"
+                            id="inputSim"
+                            name="inputPass"
+                            value="Sim"
+                          />
+                          Sim
+                          <input
+                            type="radio"
+                            id="inputNão"
+                            name="inputPass"
+                            value="Não"
+                          />
+                          Não
+                        </div>
+                        <div class="col-md-6 mb-4 pb-2">
+                          <div class="mb-4 pb-2">
+                            <div class="form-outline">
+                              <input
+                                type="text"
+                                id="form3Examplev4"
+                                class="form-control form-control-lg"
+                                id="inputPassaporte"
+                                name="inputPassaporte"
+                                placeholder="Status"
+                                required
+                              />
+                              <label class="form-label" for="form3Examplev4"
+                                >Status da Solicitação do Passsaporte (data da
+                                entrevista ou retirada)</label
+                              >
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-6 mb-4 pb-2">
+                          <div class="mb-4 pb-2">
+                            <div class="form-outline">
+                              <input
+                                type="text"
+                                id="form3Examplev4"
+                                class="form-control form-control-lg"
+                                id="inputN_pass"
+                                name="inputN_pass"
+                                placeholder="AB123456"
+                                pattern="[A-Z]{2}[0-9]{6}"
+                                title="Certifique-se de escrever corretamente o Nº do passaporte Ex: AB123456"
+                                size="9"
+                                required
+                              />
+                              <label class="form-label" for="form3Examplev4"
+                                >Numero do Passaporte</label
+                              >
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-6 mb-4 pb-2">
+                          <div class="mb-4 pb-2">
+                            <div class="form-outline">
+                              <input
+                                type="date"
+                                id="form3Examplev4"
+                                class="form-control form-control-lg"
+                                id="inputData_emissao"
+                                name="inputData_emissao"
+                                required
+                              />
+                              <label class="form-label" for="form3Examplev4"
+                                >Data de emissão do passaporte</label
+                              >
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-6 mb-4 pb-2">
+                          <div class="mb-4 pb-2">
+                            <div class="form-outline">
+                              <input
+                                type="date"
+                                id="form3Examplev4"
+                                class="form-control form-control-lg"
+                                id="inputData_val"
+                                name="inputData_val"
+                                required
+                              />
+                              <label class="form-label" for="form3Examplev4"
+                                >Data de validade do passaporte</label
+                              >
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-6 bg-indigo">
+                    <div class="p-5">
+                      <h3
+                        class="fw-normal mb-5"
+                        style="color: rgba(150, 11, 51, 1)"
+                      >
+                        Meios de Contato
+                      </h3>
+
+                      <div class="mb-4 pb-2">
+                        <div class="form-outline">
+                          <input
+                            type="text"
+                            id="form3Examplea2"
+                            class="form-control form-control-lg"
+                            id="inputEndereço"
+                            name="inputEndereço"
+                            required
+                          />
+                          <label class="form-label" for="form3Examplea2"
+                            >Endereço</label
+                          >
+                        </div>
+                      </div>
+
+                      <div class="mb-4 pb-2">
+                        <div class="form-outline">
+                          <input
+                            type="text"
+                            id="form3Examplea3"
+                            class="form-control form-control-lg"
+                            id="inputAdicionais"
+                            name="inputAdicionais"
+                          />
+                          <label class="form-label" for="form3Examplea3"
+                            >Informações Adicionais</label
+                          >
+                        </div>
+                      </div>
+
+                      <div class="row">
+                        <div class="col-md-7 mb-4 pb-2">
+                          <div class="mb-4 pb-2">
+                            <select
+                              class="form-select"
+                              id="inputEstado"
+                              name="inputEstado"
+                              required
+                            >
+                              <option value="1">Selecione o Estado</option>
+                              <option value="2">São Paulo</option>
+                              <option value="3">Bahia</option>
+                              <option value="4">Mato Grosso</option>
+                            </select>
+                          </div>
+                        </div>
+                        <div class="col-md-7 mb-4 pb-2">
+                          <div class="mb-4 pb-2">
+                            <select
+                              class="form-select"
+                              id="inputCidade"
+                              name="inputCidade"
+                              required
+                            >
+                              <option value="1">Selecione a Cidade</option>
+                              <option value="2">São Paulo</option>
+                              <option value="3">Campinas</option>
+                              <option value="4">Curitiba</option>
+                            </select>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-md-7 mb-4 pb-2">
+                            <div class="form-outline">
+                              <input
+                                type="text"
+                                id="form3Examplea8"
+                                class="form-control form-control-lg"
+                                id="inputTell/Cell"
+                                name="inputTell/Cell"
+                              />
+                              <label class="form-label" for="form3Examplea8"
+                                >Telefone/celular de Contato</label
+                              >
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="mb-4">
+                          <div class="form-outline">
+                            <input
+                              type="text"
+                              id="form3Examplea9"
+                              class="form-control form-control-lg"
+                              id="inputE-mail"
+                              name="inputE-mail"
+                            />
+                            <label class="form-label" for="form3Examplea9"
+                              >Digite seu E-mail</label
+                            >
+                          </div>
+                        </div>
+
+                        <div
+                          class="form-check d-flex justify-content-start mb-4 pb-3"
+                        >
+                          <input
+                            class="form-check-input me-3"
+                            type="checkbox"
+                            value=""
+                            id="form2Example3c"
+                          />
+                          <label class="form-check-label" for="form2Example3">
+                            Eu aceito os<a href="https://www.lipsum.com"
+                              ><u> termos e condições</u></a
+                            >
+                            do site.
+                          </label>
+                        </div>
+
+                        <button
+                          type="submit"
+                          class="btn btn-light btn-lg"
+                          data-mdb-ripple-color="dark"
+                          onclick="sendData()"
+                        >
+                          Cadastrar
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="text-center text-lg-start bg-navbar text-white">
+      <section class="d-flex justify-content-center p-4 border-bottom">
+        <div class="me-3 d-none d-lg-block">
+          <span>SITE OFICIAL DA FIFA: </span>
+        </div>
+
+        <div>
+          <a href="" class="me-2 text-reset">
+            <img src="../../../assets/imgs/logo.svg" width="32" height="32" />
+          </a>
+        </div>
+      </section>
+
+      <section class="">
+        <div class="container text-center text-md-start mt-5">
+          <div class="row mt-3">
+            <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+              <h6 class="text-uppercase fw-bold mb-4">
+                <i class="fas fa-gem me-3"></i>Sorteio Copa 2022 Fifa
+              </h6>
+              <p>
+                Site referente a um trabalho de formulário feito em equipe na
+                faculdade.
+              </p>
+            </div>
+
+            <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+              <h6 class="text-uppercase fw-bold mb-4">Tecnologias Usadas</h6>
+              <p>Google Sheets</p>
+              <p>Boostrap</p>
+              <p>Scss</p>
+              <p>Bootstrap Icons</p>
+            </div>
+
+            <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+              <h6 class="text-uppercase fw-bold mb-4">Developers</h6>
+              <p>
+                <a href="https://github.com/WagnerCaetano" class="text-reset"
+                  >Wagner Caetano</a
+                >
+              </p>
+              <p>
+                <a href="https://github.com/VFDamiao" class="text-reset"
+                  >Vinicius Damião</a
+                >
+              </p>
+              <p>
+                <a href="https://github.com/williamnovaes22" class="text-reset"
+                  >William Novaes</a
+                >
+              </p>
+              <p>
+                <a href="https://github.com/MatheusMatioli" class="text-reset"
+                  >Matheus Matiolli</a
+                >
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div
+        class="text-center p-4"
+        style="background-color: rgba(0, 0, 0, 0.05)"
+      >
+        © 2021 Copyright:
+        <a
+          class="text-reset fw-bold"
+          href="https://github.com/WagnerCaetano/2022-world-cup-prize"
+          >github</a
+        >
+      </div>
+    </footer>
+  </body>
+</html>
