@@ -1,4 +1,42 @@
 /* You can add global styles to this file, and also import other style files */
 
 /* Importing Bootstrap SCSS file. */
-@import '~bootstrap/scss/bootstrap';
+@import "~bootstrap/scss/bootstrap";
+
+.bg-image {
+  z-index: 0;
+  background: url("./assets/imgs/background.jpg") no-repeat center center fixed;
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.fix-image {
+  width: 60vw !important;
+  height: 40vh !important;
+  object-fit: contain !important;
+}
+
+.bg-navbar {
+  background: #0e0e0e;
+  background: radial-gradient(circle, #960b33 0%, #0e0e0e 100%);
+}
+
+nav a {
+  color: #e6e3e2 !important;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+}
+
+.content {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+  height: 100vh;
+}
