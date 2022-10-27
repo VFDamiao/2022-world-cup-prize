@@ -2,59 +2,27 @@
   <app-header-nav></app-header-nav>
 
   <section class="container-lg mt-2 mb-2 d-flex align-items-center flex-column">
-    <div
-      id="carouselExampleInterval"
-      class="carousel slide"
-      data-bs-ride="carousel"
-    >
-      <div class="carousel-inner">
-        <div class="carousel-item active" data-bs-interval="4000">
-          <img
-            src="../../../assets/imgs/carrousel01.png"
-            class="d-block w-100"
-            alt="..."
-          />
-        </div>
-        <div class="carousel-item" data-bs-interval="4000">
-          <img
-            src="../../../assets/imgs/carrousel02.png"
-            class="d-block w-100"
-            alt="..."
-          />
-        </div>
-        <div class="carousel-item" data-bs-interval="4000">
-          <img
-            src="../../../assets/imgs/carrousel03.png"
-            class="d-block w-100"
-            alt="..."
-          />
-        </div>
-      </div>
-      <button
-        class="carousel-control-prev"
-        type="button"
-        data-bs-target="#carouselExampleInterval"
-        data-bs-slide="prev"
+    <div>
+      <carousel
+        (activeSlideChange)="onActiveSlideChange($event)"
+        [(activeSlide)]="pageData.activeSlideIndex"
+        [interval]="2000"
+        [isAnimated]="true"
       >
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-      </button>
-      <button
-        class="carousel-control-next"
-        type="button"
-        data-bs-target="#carouselExampleInterval"
-        data-bs-slide="next"
-      >
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-      </button>
+        <slide *ngFor="let slide of pageData.slides; let index = index">
+          <img
+            [src]="slide.image"
+            alt="image slide"
+            style="display: block; width: 100%"
+          />
+        </slide>
+      </carousel>
     </div>
-
     <div
       class="container-fluid bg-white p-5 mt-2 rounded-2 d-flex align-items-center flex-column"
     >
       <h2>O sorteio irá acontecer em alguns segundos:</h2>
-      <h3 id="demo">10 segundos</h3>
+      <h3 id="demo">{{ (pageData.counter | async) + " segundos" }}</h3>
       <button
         style="display: none"
         id="btn-sorteio"

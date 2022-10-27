@@ -7,12 +7,12 @@ import { LandingPageComponent } from './pages/landing-page/landing-page.componen
 import { TutorialComponent } from './pages/tutorial/tutorial.component';
 
 const routes: Routes = [
-  { path: '*', redirectTo: '/landing', pathMatch: 'full' },
   { path: 'landing', component: LandingPageComponent },
   { path: 'tutorial', component: TutorialComponent },
   { path: 'form', component: FormPageComponent },
   { path: 'about', component: AboutComponent },
   { path: 'contact', component: ContactComponent },
+  { path: '**', redirectTo: '/landing' },
 ];
 
 @NgModule({
