@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { map, Observable, take, timer } from 'rxjs';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { finalize, map, Observable, take, timer } from 'rxjs';
+import { WinnerService as WinnerService } from 'src/app/services/winner.service';
 import { slidesItens } from './landing.page.component.constants';
 
 interface LandingPageComponentInterface {
@@ -9,21 +11,32 @@ interface LandingPageComponentInterface {
   counter: Observable<number>;
 }
 
+const gifs = {
+  success: 'https://giphy.com/embed/g9582DNuQppxC',
+  fail: 'https://giphy.com/embed/oFeYuQKteOf0xEsCtj',
+};
+
 @Component({
   selector: 'app-landing-page',
   templateUrl: './landing-page.component.html',
   styleUrls: ['./landing-page.component.scss'],
 })
 export class LandingPageComponent implements OnInit {
-  pageData: LandingPageComponentInterface;
+  public pageData: LandingPageComponentInterface;
+  public showButtonSorteio = false;
+  public winner: string;
+  public gif = 'https://giphy.com/embed/g9582DNuQppxC';
 
-  constructor() {}
+  constructor(
+    private modalService: NgbModal,
+    private winnerService: WinnerService
+  ) {}
 
-  ngOnInit() {
+  public ngOnInit() {
     this.createPageData();
   }
 
-  onActiveSlideChange($event: number) {
+  public onActiveSlideChange($event: number) {
     this.pageData.activeSlideIndex = $event;
   }
 
@@ -34,8 +47,17 @@ export class LandingPageComponent implements OnInit {
       activeSlideIndex: 0,
       counter: timer(0, 1000).pipe(
         map((i) => 10 - i),
-        take(11)
+        take(11),
+        finalize(() => (this.showButtonSorteio = true))
       ),
     };
+  }
+
+  public open(content: any) {
+    const result = this.winnerService.getWinner();
+    console.log(result);
+    this.winner = result.nome;
+    this.gif = result.state == 'sorteado' ? gifs.success : gifs.fail;
+    this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' });
   }
 }

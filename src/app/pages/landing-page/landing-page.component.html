@@ -24,37 +24,66 @@
       <h2>O sorteio irá acontecer em alguns segundos:</h2>
       <h3 id="demo">{{ (pageData.counter | async) + " segundos" }}</h3>
       <button
-        style="display: none"
+        *ngIf="showButtonSorteio"
         id="btn-sorteio"
         class="btn btn-primary"
-        onclick="seeResultsButton()"
+        (click)="open(content)"
       >
         Ver resultado
       </button>
     </div>
   </section>
 
-  <div class="m-4">
-    <div id="myModal" class="modal fade" tabindex="-1">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title">Resultado do Sorteio</h5>
-            <button
-              type="button"
-              class="btn-close"
-              data-bs-dismiss="modal"
-            ></button>
-          </div>
-          <div class="modal-body">
-            <p id="result-sorteio">O resultado do sorteado foi:</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
   <app-footer></app-footer>
 
   <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
 </body>
+
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">
+      O ganhador foi:
+      <h2>{{ winner || "Ainda não temos ganhador" }}</h2>
+    </h4>
+    <button
+      type="button"
+      class="btn-close"
+      aria-label="Close"
+      (click)="modal.dismiss('Cross click')"
+    ></button>
+  </div>
+  <div class="modal-body">
+    <div
+      style="width: 100%; height: 0; padding-bottom: 56%; position: relative"
+    >
+      <iframe
+        src="https://giphy.com/embed/g9582DNuQppxC"
+        width="100%"
+        height="100%"
+        style="position: absolute"
+        frameBorder="0"
+        class="giphy-embed"
+        allowFullScreen
+      ></iframe>
+      <iframe
+        src="https://giphy.com/embed/oFeYuQKteOf0xEsCtj"
+        width="100%"
+        height="100%"
+        frameBorder="0"
+        class="giphy-embed"
+        allowFullScreen
+      ></iframe>
+      <p>
+        <a
+          href="https://giphy.com/gifs/theoffice-nbc-the-office-tv-oFeYuQKteOf0xEsCtj"
+          >via GIPHY</a
+        >
+      </p>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <h4>
+      Você receberá um email confirmando sua identidade e dando seu prêmio
+    </h4>
+  </div>
+</ng-template>
