@@ -12,8 +12,8 @@ interface LandingPageComponentInterface {
 }
 
 const gifs = {
-  success: 'https://giphy.com/embed/g9582DNuQppxC',
-  fail: 'https://giphy.com/embed/oFeYuQKteOf0xEsCtj',
+  success: './../../../assets/imgs/winner.gif',
+  fail: './../../../assets/imgs/not-yet.gif',
 };
 
 @Component({
@@ -25,7 +25,7 @@ export class LandingPageComponent implements OnInit {
   public pageData: LandingPageComponentInterface;
   public showButtonSorteio = false;
   public winner: string;
-  public gif = 'https://giphy.com/embed/g9582DNuQppxC';
+  public gif = './../../../assets/imgs/winner.gif';
 
   constructor(
     private modalService: NgbModal,

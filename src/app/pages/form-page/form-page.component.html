@@ -26,6 +26,7 @@
           >
             <div class="card-body p-0">
               <form
+                *ngIf="showForm; else informativo"
                 class="row g-0"
                 [formGroup]="profileForm"
                 (ngSubmit)="onSubmit()"
@@ -50,6 +51,20 @@
                             required
                           />
                         </div>
+                        <div
+                          *ngIf="
+                            firstName.invalid &&
+                            (firstName.dirty || firstName.touched)
+                          "
+                          class="alert"
+                        >
+                          <div *ngIf="firstName.errors?.['required']">
+                            É obrigatório o primeiro nome.
+                          </div>
+                          <div *ngIf="firstName.errors?.['minlength']">
+                            Nome deve ter um tamanho minimo de 3 caracteres.
+                          </div>
+                        </div>
                       </div>
                       <div class="col-md-6 mb-4 pb-2">
                         <div class="form-outline">
@@ -61,6 +76,20 @@
                             formControlName="lastName"
                             required
                           />
+                        </div>
+                        <div
+                          *ngIf="
+                            lastName.invalid &&
+                            (lastName.dirty || lastName.touched)
+                          "
+                          class="alert"
+                        >
+                          <div *ngIf="lastName.errors?.['required']">
+                            É obrigatório o primeiro nome.
+                          </div>
+                          <div *ngIf="lastName.errors?.['minlength']">
+                            Nome deve ter um tamanho minimo de 3 caracteres.
+                          </div>
                         </div>
                       </div>
                       <div class="col-md-6 mb-4 pb-2">
@@ -163,15 +192,18 @@
                       <div class="col-md-6 mb-4 pb-2">
                         <div class="form-outline">
                           <label for="passport-status"
-                            >Status da Solicitação do Passsaporte (data da
-                            entrevista ou retirada):
+                            >Status da Solicitação do Passaporte:
                           </label>
-                          <input
-                            class="form-control form-control-lg"
-                            id="passport-status"
-                            type="text"
+                          <select
+                            class="custom-select mb-3 form-control form-control-lg"
+                            (change)="changePassportStatus($event)"
                             formControlName="passportStatus"
-                          />
+                          >
+                            <option value="">Escolha Status</option>
+                            <option [ngValue]="'APROVADO'">APROVADO</option>
+                            <option [ngValue]="'EM ANALISE'">EM ANALISE</option>
+                            <option [ngValue]="'REPROVADO'">REPROVADO</option>
+                          </select>
                         </div>
                       </div>
                       <div class="col-md-6 mb-4 pb-2">
@@ -193,9 +225,7 @@
                       </div>
                       <div class="col-md-6 mb-4 pb-2">
                         <div class="form-outline">
-                          <label for="passport-date"
-                            >Data de emissão do passaporte:
-                          </label>
+                          <label for="passport-date">Data de emissão: </label>
                           <input
                             class="form-control form-control-lg"
                             id="passport-date"
@@ -278,6 +308,18 @@
                   </div>
                 </div>
               </form>
+              <ng-template #informativo>
+                <div class="col-lg-6">
+                  <div class="p-5">
+                    <h2
+                      class="fw-normal mb-5"
+                      style="color: rgba(150, 11, 51, 1)"
+                    >
+                      SORTEIO JÁ TERMINOU !
+                    </h2>
+                  </div>
+                </div>
+              </ng-template>
             </div>
           </div>
         </div>

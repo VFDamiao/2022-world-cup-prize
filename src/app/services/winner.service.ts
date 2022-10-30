@@ -21,7 +21,7 @@ export class WinnerService {
       nome: this.checkWinner(),
       state: 'sorteado',
     };
-    if (!winner) {
+    if (!winner.nome) {
       winner = { nome: this.sortWinner(), state: 'sorteado' };
     }
     if (!winner.nome) {
@@ -32,19 +32,20 @@ export class WinnerService {
   }
 
   addParticipant(name: string): void {
-    this.writeLocalStorageContent(name, undefined);
+    let patchData = this.getLocalStorageContent() || {};
+    if (patchData && patchData.participants) {
+      patchData.participants.push(name);
+    } else {
+      patchData.participants = [name];
+    }
+    console.log('addParticipant', patchData);
+    window.localStorage.setItem('localStorageData', JSON.stringify(patchData));
   }
 
   private saveWinner(winner: string) {
-    this.writeLocalStorageContent(undefined, winner);
-  }
-
-  private writeLocalStorageContent(participant: string, winner: string) {
     let patchData = this.getLocalStorageContent() || {};
     patchData.name = patchData && patchData.name ? patchData.name : winner;
-    patchData && patchData.participants
-      ? patchData.participants.push(participant)
-      : [];
+    console.log(patchData);
     window.localStorage.setItem('localStorageData', JSON.stringify(patchData));
   }
 
