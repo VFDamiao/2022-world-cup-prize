@@ -314,9 +314,11 @@
                     <h2
                       class="fw-normal mb-5"
                       style="color: rgba(150, 11, 51, 1)"
+                      (mouseover)='ativarContagemRegressivaBotao()'
                     >
                       SORTEIO JÁ TERMINOU !
                     </h2>
+                    <button [ngClass]="{ 'mostrarBotao': flagMostrarBotao, 'esconderBotao': !flagMostrarBotao }" (click)="resetarBackend()"> Reset Dados </button>
                   </div>
                 </div>
               </ng-template>

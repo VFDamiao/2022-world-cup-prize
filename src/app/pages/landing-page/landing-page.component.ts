@@ -53,8 +53,8 @@ export class LandingPageComponent implements OnInit {
     };
   }
 
-  public open(content: any) {
-    const result = this.winnerService.getWinner();
+  public async open(content: any) {
+    const result = await this.winnerService.getWinner();
     console.log(result);
     this.winner = result.nome;
     this.gif = result.state == 'sorteado' ? gifs.success : gifs.fail;

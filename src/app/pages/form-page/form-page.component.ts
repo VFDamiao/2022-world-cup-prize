@@ -9,6 +9,7 @@ import { WinnerService } from 'src/app/services/winner.service';
 })
 export class FormPageComponent implements OnInit {
   showForm = true;
+  flagMostrarBotao = false;
   profileForm = this.fb.group({
     firstName: [
       '',
@@ -36,8 +37,8 @@ export class FormPageComponent implements OnInit {
 
   constructor(private fb: FormBuilder, private winnerService: WinnerService) {}
 
-  ngOnInit(): void {
-    this.showForm = this.winnerService.getWinner().state != 'sorteado';
+  async ngOnInit(): Promise<void> {
+    this.showForm = (await this.winnerService.getWinner()).state != 'sorteado';
   }
 
   onSubmit() {
@@ -47,6 +48,15 @@ export class FormPageComponent implements OnInit {
         this.profileForm.value['lastName']
     );
     console.log(this.profileForm.value);
+  }
+
+  ativarContagemRegressivaBotao() {
+    setTimeout(() => { this.flagMostrarBotao = true; } , 3000);
+    setTimeout(() => { this.flagMostrarBotao = false; } , 10000);
+  }
+
+  resetarBackend() {
+    this.winnerService.resetBackend();
   }
 
   changePassportStatus(e: any) {

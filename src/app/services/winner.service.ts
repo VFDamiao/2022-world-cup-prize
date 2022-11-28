@@ -1,8 +1,12 @@
 import { Injectable } from '@angular/core';
+import axios from 'axios'
 
-interface LocalStorageData {
-  name?: string;
-  participants?: string[];
+const baseUrl = 'https://world-cup-backend-2022.herokuapp.com/api/Participants';
+
+interface ApiResponse {
+  participants: string[],
+  name: string,
+  status: 'sorteado' | 'vazio',
 }
 
 export interface WinnerResponse {
@@ -16,55 +20,46 @@ export interface WinnerResponse {
 export class WinnerService {
   constructor() {}
 
-  getWinner(): WinnerResponse {
+  async getWinner(): Promise<WinnerResponse> {
+    const response = await this.getAPI();
     let winner: WinnerResponse = {
-      nome: this.checkWinner(),
-      state: 'sorteado',
+      nome: response.name,
+      state: response.status,
     };
-    if (!winner.nome) {
-      winner = { nome: this.sortWinner(), state: 'sorteado' };
+    if (!winner.nome || winner.nome.length <= 0) {
+      winner = { nome: await this.sortWinner(), state: 'sorteado' };
+      this.saveWinner(winner.nome);
     }
-    if (!winner.nome) {
+    if (!winner.nome || winner.nome.length <= 0) {
       return { nome: undefined, state: 'vazio' };
     }
-    this.saveWinner(winner.nome);
     return winner;
   }
 
-  addParticipant(name: string): void {
-    let patchData = this.getLocalStorageContent() || {};
-    if (patchData && patchData.participants) {
-      patchData.participants.push(name);
-    } else {
-      patchData.participants = [name];
+  async addParticipant(name: string) {
+    await axios.put(baseUrl, { participant: name });
+  }
+
+  async resetBackend() {
+    await axios.delete(baseUrl+'/reset')
+  }
+
+  private async saveWinner(winner: string) {
+    await axios.put(baseUrl+ '/winner',{ winner });
+  }
+
+  private async getAPI(): Promise<ApiResponse> {
+    const response = await axios.get(baseUrl);
+    if (response.status == 200) {
+      console.log(response.data.data[0])
+      return response.data.data[0];
     }
-    console.log('addParticipant', patchData);
-    window.localStorage.setItem('localStorageData', JSON.stringify(patchData));
+    console.log("erro",response);
+    throw new Error("erro: " + response);
   }
 
-  private saveWinner(winner: string) {
-    let patchData = this.getLocalStorageContent() || {};
-    patchData.name = patchData && patchData.name ? patchData.name : winner;
-    console.log(patchData);
-    window.localStorage.setItem('localStorageData', JSON.stringify(patchData));
-  }
-
-  private checkWinner(): string {
-    return this.getLocalStorageContent()?.name!;
-  }
-
-  private getLocalStorageContent() {
-    const localStorageContent: string =
-      window.localStorage.getItem('localStorageData');
-    return localStorageContent
-      ? (JSON.parse(localStorageContent) as LocalStorageData)
-      : undefined;
-  }
-
-  private sortWinner(): string {
-    const array: string[] = this.getLocalStorageContent()?.participants
-      ? this.getLocalStorageContent()?.participants
-      : [''];
+  private async sortWinner(): Promise<string> {
+    const array: string[] = (await this.getAPI())?.participants 
     return array[Math.floor(Math.random() * array.length)];
   }
 }
