@@ -28,11 +28,11 @@ export class WinnerService {
     };
     if (!winner.nome || winner.nome.length <= 0) {
       winner = { nome: await this.sortWinner(), state: 'sorteado' };
-      this.saveWinner(winner.nome);
     }
     if (!winner.nome || winner.nome.length <= 0) {
       return { nome: undefined, state: 'vazio' };
     }
+    this.saveWinner(winner.nome);
     return winner;
   }
 
