@@ -6,11 +6,13 @@ const baseUrl = 'https://world-cup-backend-2022.herokuapp.com/api/Participants';
 interface ApiResponse {
   participants: string[],
   name: string,
-  status: 'sorteado' | 'vazio',
+  status: StatusType,
 }
 
+export type StatusType = 'sorteado' | 'vazio';
+
 export interface WinnerResponse {
-  state: 'sorteado' | 'vazio';
+  state: StatusType;
   nome: string | undefined;
 }
 
@@ -24,7 +26,7 @@ export class WinnerService {
     const response = await this.getAPI();
     let winner: WinnerResponse = {
       nome: response.name,
-      state: response.status,
+      state: 'sorteado',
     };
     if (!winner.nome || winner.nome.length <= 0) {
       winner = { nome: await this.sortWinner(), state: 'sorteado' };
@@ -34,6 +36,11 @@ export class WinnerService {
     }
     this.saveWinner(winner.nome);
     return winner;
+  }
+
+  async getStatus() {
+    const response = await this.getAPI();
+    return response.name ? 'sorteado' : 'vazio';
   }
 
   async addParticipant(name: string) {

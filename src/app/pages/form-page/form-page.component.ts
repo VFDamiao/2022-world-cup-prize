@@ -38,7 +38,7 @@ export class FormPageComponent implements OnInit {
   constructor(private fb: FormBuilder, private winnerService: WinnerService) {}
 
   async ngOnInit(): Promise<void> {
-    this.showForm = (await this.winnerService.getWinner()).state != 'sorteado';
+    this.showForm = (await this.winnerService.getStatus()) != 'sorteado';
   }
 
   onSubmit() {
@@ -57,6 +57,7 @@ export class FormPageComponent implements OnInit {
 
   resetarBackend() {
     this.winnerService.resetBackend();
+    this.flagMostrarBotao = false;
   }
 
   changePassportStatus(e: any) {
